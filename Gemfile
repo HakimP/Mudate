@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
-
-#Bootstrap 
+#Active Admin para administrador de Catalogos
+gem 'activeadmin', github: 'activeadmin'
+#Bootstrap
 gem 'bootstrap-sass'
-#Divise
+#Autenticacion
 gem 'devise'
+#Roles
+gem 'cancancan'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.7'
 # Use postgresql as the database for Active Record
@@ -47,4 +50,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
