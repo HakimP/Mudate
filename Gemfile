@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-#Bootstrap 
+gem 'cancancan'
+gem 'activeadmin', github: 'activeadmin'
+#Bootstrap
 gem 'bootstrap-sass'
 #Divise
 gem 'devise'
@@ -47,4 +49,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
