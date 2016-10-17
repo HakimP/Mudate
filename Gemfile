@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'cancancan'
-gem 'activeadmin', github: 'activeadmin'
+#gem 'activeadmin', github: 'activeadmin'
 #Bootstrap
 gem 'bootstrap-sass'
 #Divise

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  folio: 1
+  fecha_cita: 2016-10-16 23:48:08
+  fech_inicio: 2016-10-16 23:48:08
+  fecha_fin: 2016-10-16 23:48:08
+  fecha_entrega_caja: 2016-10-16 23:48:08
+  empresa_servicio_id: 
+
+two:
+  folio: 1
+  fecha_cita: 2016-10-16 23:48:08
+  fech_inicio: 2016-10-16 23:48:08
+  fecha_fin: 2016-10-16 23:48:08
+  fecha_entrega_caja: 2016-10-16 23:48:08
+  empresa_servicio_id: 

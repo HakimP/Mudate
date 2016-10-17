@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :solicituds
+  resources :empresas
+  resources :servicios
   get 'general/index'
 
   root 'general#index'

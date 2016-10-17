@@ -11,10 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918211709) do
+ActiveRecord::Schema.define(version: 20161017044808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "empresa_servicios", force: :cascade do |t|
+    t.integer  "empresa_id"
+    t.integer  "servicio_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "empresa_servicios", ["empresa_id"], name: "index_empresa_servicios_on_empresa_id", using: :btree
+  add_index "empresa_servicios", ["servicio_id"], name: "index_empresa_servicios_on_servicio_id", using: :btree
+
+  create_table "empresas", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "razon_social"
+    t.boolean  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "servicios", force: :cascade do |t|
+    t.string   "desc_servicio"
+    t.float    "costo"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "solicituds", force: :cascade do |t|
+    t.integer  "folio"
+    t.datetime "fecha_cita"
+    t.datetime "fech_inicio"
+    t.datetime "fecha_fin"
+    t.datetime "fecha_entrega_caja"
+    t.integer  "empresa_servicio_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "solicituds", ["empresa_servicio_id"], name: "index_solicituds_on_empresa_servicio_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +72,7 @@ ActiveRecord::Schema.define(version: 20160918211709) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "empresa_servicios", "empresas"
+  add_foreign_key "empresa_servicios", "servicios"
+  add_foreign_key "solicituds", "empresa_servicios"
 end
