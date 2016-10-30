@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :empresas
   resources :servicios
   get 'general/index'
+  get 'general/contacto'
 
   root 'general#index'
 
