@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :caracteristicas
   resources :solicituds
   resources :empresas
   resources :servicios
   get 'general/index'
   get 'general/contacto'
 
+  get 'caracteristicas/consultaCaracteristica'
   root 'general#index'
 
   devise_for :users

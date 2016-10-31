@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017044808) do
+ActiveRecord::Schema.define(version: 20161030192454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "caracteristicas", force: :cascade do |t|
+    t.integer  "servicio_id"
+    t.string   "descripcion"
+    t.boolean  "estatus"
+    t.float    "costo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "caracteristicas", ["servicio_id"], name: "index_caracteristicas_on_servicio_id", using: :btree
 
   create_table "empresa_servicios", force: :cascade do |t|
     t.integer  "empresa_id"
@@ -72,6 +83,7 @@ ActiveRecord::Schema.define(version: 20161017044808) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "caracteristicas", "servicios"
   add_foreign_key "empresa_servicios", "empresas"
   add_foreign_key "empresa_servicios", "servicios"
   add_foreign_key "solicituds", "empresa_servicios"

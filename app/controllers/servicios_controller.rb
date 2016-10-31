@@ -1,6 +1,9 @@
 class ServiciosController < ApplicationController
   before_action :set_servicio, only: [:show, :edit, :update, :destroy]
 
+  def redirecciona
+    
+  end
   # GET /servicios
   # GET /servicios.json
   def index

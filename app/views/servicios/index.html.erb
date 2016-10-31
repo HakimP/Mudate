@@ -1,33 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Servicios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Desc servicio</th>
-      <th>Costo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @servicios.each do |servicio| %>
-      <tr>
-        <td><%= servicio.desc_servicio %></td>
-        <td><%= servicio.costo %></td>
-        <td><%= link_to 'Show', servicio %></td>
-        <td><%= link_to 'Edit', edit_servicio_path(servicio) %></td>
-        <td><%= link_to 'Destroy', servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Servicio', new_servicio_path %>
-
+<div class="jumbotron" style="background:url('http://www.psdgraphics.com/file/old-paper.jpg');
+  border-radius: 15px;padding-left: 15px;">
+  <h2> Servicios</h2>
+  <p>
+    En Mudante, nos capacitamos día a día para ofrecerte un servicio de calidad
+    con la finalidad de llevar a la palma de tu mano las diferentes opciones
+    de mundanzas en el mercado, ahorrando enormes demoras y sin que esto se convierta
+    en una tarea dificil
+  </p>
+</div>
 <div class="row ">
    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
        <div class="db-wrapper">
@@ -37,14 +17,15 @@
                        <i class="glyphicon glyphicon-qrcode"></i>
                        ECONOMICO
                    </li>
-                   <li>Web Designing</li>
-                   <li>Web Designing</li>
-                   <li>Logo Assesment</li>
-                   <li>Digital Marketing</li>
+                   <li>Maniobras y flete incluido.</li>
+                   <li>Retiro final de desecho de empaque.</li>
+                   <li>Maniobras y flete incluido.</li>
                </ul>
                <div class="pricing-footer">
-
-                   <a href="#" class="btn btn-default btn-lg">BUY <i class="glyphicon glyphicon-play-circle"></i></a>
+                 <span class="btn btn-default btn-lg">
+                   <%= link_to "BUY", caracteristicas_path(seleccion:"8"), style:"color:black"%>
+                   <i class="glyphicon glyphicon-play-circle"></i>
+                 </span>
                </div>
            </div>
        </div>
@@ -55,13 +36,12 @@
                <ul>
                    <li class="price">
                        <i class="glyphicon glyphicon-indent-right"></i>
-                       RESIDENCIAL
+                       BASICO
                    </li>
-
-                   <li>Web Designing</li>
-                   <li>Logo Assesment</li>
-                   <li>Web Designing</li>
-                   <li>Logo Assesment</li>
+                   <li>25 cajas de cortesía para su previo empaque.</li>
+                   <li>Otorgamos 4 cajas armario para la ropa de colgar.</li>
+                   <li>Volado hasta tercer piso sin costo.</li>
+                   <li>Póliza de seguro de daños menores</li>
                    <li>Digital Marketing</li>
                </ul>
                <div class="pricing-footer">
@@ -80,12 +60,12 @@
                        TODO INCLUIDO
                    </li>
 
-                   <li>Web Designing</li>
-                   <li>Logo Assesment</li>
-                   <li>Digital Marketing</li>
-                   <li>Web Designing</li>
-                   <li>Logo Assesment</li>
-                   <li>Digital Marketing</li>
+                   <li>Desarme de muebles (tornillería básica y compleja)</li>
+                   <li>Empaque de contenidos y preparación de muebles un día antes del traslado</li>
+                   <li>Traslado de ropa de colgar sin límite.</li>
+                   <li>Material de empaque ilimitado</li>
+                   <li>Volado de muebles sin límite.</li>
+                   <li>Desempaque y acomodo a criterio propio.</li>
                </ul>
                <div class="pricing-footer">
 
@@ -100,7 +80,7 @@
                <ul>
                    <li class="price">
                        <i class="glyphicon glyphicon-align-justify"></i>
-                       EXPRESS
+                       OTROS
                    </li>
 
                    <li>Web Designing</li>

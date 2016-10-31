@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servicio:</strong>
+  <%= @caracteristica.servicio %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @caracteristica.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @caracteristica.estatus %>
+</p>
+
+<p>
+  <strong>Costo:</strong>
+  <%= @caracteristica.costo %>
+</p>
+
+<%= link_to 'Edit', edit_caracteristica_path(@caracteristica) %> |
+<%= link_to 'Back', caracteristicas_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  servicio_id: 
+  descripcion: MyString
+  estatus: false
+  costo: 1.5
+
+two:
+  servicio_id: 
+  descripcion: MyString
+  estatus: false
+  costo: 1.5

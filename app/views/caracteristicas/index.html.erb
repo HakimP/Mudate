@@ -1,0 +1,40 @@
+
+<div class="container">
+  <%= form_tag(caracteristicas_path, method: "get") do %>
+    <label for="sel1">Servicios Disponible:</label>
+    <%= select_tag(:seleccion, options_from_collection_for_select(@listServicios, "id", "desc_servicio", @itemService),
+       prompt: "Selecciona Opción") %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+  <div class="jumbotron">
+    <div >
+      <h2>Servicio básico</h2>
+      <p>
+        Este servicio es ideal si piensa empacar los contenidos de sus muebles,
+        todo ello en cajas, una de la maneras ideales para seleccionar y depurar
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Caracteristicas</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+              <% @listCaracteristicas.each do |caracteristica| %>
+                <tr>
+                  <td><%= caracteristica.descripcion %></td>
+                </tr>
+              <% end %>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag "mudanzaBasica.png", :alt => "Mundanza", style:"width: 30em"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
