@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'general/index'
   get 'general/contacto'
 
-  get 'caracteristicas/consultaCaracteristica'
+  post 'caracteristicas/redireccionSolicitudes'
   root 'general#index'
 
   devise_for :users

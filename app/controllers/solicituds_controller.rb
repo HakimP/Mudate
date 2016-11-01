@@ -69,6 +69,6 @@ class SolicitudsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solicitud_params
-      params.require(:solicitud).permit(:folio, :fecha_cita, :fech_inicio, :fecha_fin, :fecha_entrega_caja, :empresa_servicio_id)
+      params.require(:solicitud).permit(:folio, :fecha_cita, :fech_inicio, :fecha_fin, :fecha_entrega_caja, :empresa_servicio_id, :direccion_destino)
     end
 end

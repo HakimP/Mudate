@@ -4,14 +4,19 @@ class CaracteristicasController < ApplicationController
   # GET /caracteristicas
   # GET /caracteristicas.json
   def index
-    @itemService = params[:seleccion] != nil ? params[:seleccion] : 0
+    @itemService = params[:seleccion] != nil ? params[:seleccion] : ""
     @listCaracteristicas = Caracteristica.where servicio_id:params[:seleccion]
     @listServicios = Servicio.all
     @caracteristicas = Caracteristica.all
   end
-  
-  def consultaCaracteristica
+
+  def redireccionSolicitudes
     puts params
+    if user_signed_in?
+      redirect_to new_solicitud_path(params[:format]), notice: "El usuario es valido"
+    else
+      redirect_to caracteristicas_path(params[:format]), notice: "Para solicitar un servicio es necesario estar logueado"
+    end
   end
   # GET /caracteristicas/1
   # GET /caracteristicas/1.json

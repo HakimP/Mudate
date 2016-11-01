@@ -1,22 +1,52 @@
 
+<div id="altera">
+  <p id="notice"><%= notice %></p>
+</div>
+
 <div class="container">
   <%= form_tag(caracteristicas_path, method: "get") do %>
     <label for="sel1">Servicios Disponible:</label>
     <%= select_tag(:seleccion, options_from_collection_for_select(@listServicios, "id", "desc_servicio", @itemService),
        prompt: "Selecciona Opción") %>
-    <%= submit_tag("Search") %>
+    <%= submit_tag("Ver") %>
   <% end %>
 
   <div class="jumbotron">
-    <div >
-      <h2>Servicio básico</h2>
-      <p>
-        Este servicio es ideal si piensa empacar los contenidos de sus muebles,
-        todo ello en cajas, una de la maneras ideales para seleccionar y depurar
-      </p>
+    <%= form_tag(caracteristicas_redireccionSolicitudes_path(@itemService), method: "post") do %>
+      <%= submit_tag("Solicitar Servicio") %>
+    <% end %>
+    <div>
+        <% if @itemService == "1" %>
+          <h2>Mudanzas Economicas</h2>
+          <p>
+            Este servicio es ideal si piensa empacar los contenidos de sus muebles,
+            todo ello en cajas, una de la maneras ideales para seleccionar y depurar
+          </p>
+        <%elsif @itemService == "2" %>
+          <h2>Mudanzas Basica</h2>
+          <p>
+            Este servicio es ideal si piensa empacar los contenidos de sus muebles,
+            todo ello en cajas, una de la maneras ideales para seleccionar y depurar
+          </p>
+        <%elsif @itemService == "3" %>
+          <h2>Mudanzas Todo Incluido</h2>
+          <p>
+            Este servicio es ideal si piensa empacar los contenidos de sus muebles,
+            todo ello en cajas, una de la maneras ideales para seleccionar y depurar
+          </p>
+        <%elsif @itemService == "" %>
+          <h2>Servicio</h2>
+          <p>
+            Este servicio es ideal si piensa empacar los contenidos de sus muebles,
+            todo ello en cajas, una de la maneras ideales para seleccionar y depurar
+          </p>
+        <% end %>
+
       <div class="row">
         <div class="col-md-6">
+          <%if @itemService != "" %>
           <div class="panel panel-primary">
+
             <div class="panel-heading">
               <h3 class="panel-title">Caracteristicas</h3>
             </div>
@@ -29,11 +59,24 @@
               <% end %>
               </table>
             </div>
+
           </div>
+          <% end %>
         </div>
-        <div class="col-md-4">
-          <%= image_tag "mudanzaBasica.png", :alt => "Mundanza", style:"width: 30em"%>
+
+        <div class="col-md-5">
+          <br><br>
+          <% if @itemService == "1" %>
+            <%= image_tag "mudanzaBasica.png", :alt => "Mundanza", class:"img-responsive"%>
+          <%elsif @itemService == "2" %>
+            <%= image_tag "mudanzaTotal.png", :alt => "Mundanza", class:"img-responsive"%>
+          <%elsif @itemService == "3" %>
+            <%= image_tag "cajas-para-mudanza.png", :alt => "Mundanza", class:"img-responsive"%>
+          <%elsif @itemService == "" %>
+            <%= image_tag "mudanzas-basica.png", :alt => "Mundanza", class:"img-responsive"%>
+          <% end %>
         </div>
+
       </div>
     </div>
   </div>
