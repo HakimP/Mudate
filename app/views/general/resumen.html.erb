@@ -7,9 +7,6 @@
         <h3 class="panel-title">Formato de Solicitud</h3>
       </div>
       <div id="bodyFormNewSolicitudes" class="panel-body">
-        <div style="text-align: end !important;">
-          <span style="font-size:1.2em;color:red">Folio : </span><span class="label label-primary" name="folioId"><%=@folioActual%></span>
-        </div>
         <br>
         <%= form_for @solicitud, {url: solicituds_guardarSolicitud_path} do |f| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -21,6 +18,17 @@
           </div>
           <div class="col-md-6">
             <%= text_field_tag :dor, "", {class:"form-control", placeholder:"Direccion Origen"}%>
+          </div>
+        </div>
+
+        <div class="field col-md-12">
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <%= label_tag(:foil, "Folio :") %>
+          </div>
+          <div class="col-md-6">
+            <%= @solicitud.folio%>
+            <%= text_field_tag :foil, "", {class:"form-control", placeholder:"Direccion Destino"}%>
           </div>
         </div>
 

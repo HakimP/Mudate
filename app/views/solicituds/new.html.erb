@@ -1,5 +1,16 @@
-<h1>New Solicitud</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', solicituds_path %>
+<div class="container">
+  <div class="jumbotron">
+    <div class="panel panel-default">
+      <div class="panel-heading"  style="background:linear-gradient(to bottom, rgba(48,147,253,1) 0%, rgb(70, 164, 255) 19%, rgba(48,147,253,1) 100%)">
+        <h3 class="panel-title">Formato de Solicitud</h3>
+      </div>
+      <div id="bodyFormNewSolicitudes" class="panel-body">
+        <div style="text-align: end !important;">
+          <span style="font-size:1.2em;color:red">Folio : </span><span class="label label-primary">12123</span>
+        </div>
+        <br>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

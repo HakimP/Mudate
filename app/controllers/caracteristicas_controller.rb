@@ -13,7 +13,7 @@ class CaracteristicasController < ApplicationController
   def redireccionSolicitudes
     puts params
     if user_signed_in?
-      redirect_to new_solicitud_path(params[:format]), notice: "El usuario es valido"
+      redirect_to solicituds_path(params[:format]), notice: "El usuario es valido"
     else
       redirect_to caracteristicas_path(params[:format]), notice: "Para solicitar un servicio es necesario estar logueado"
     end

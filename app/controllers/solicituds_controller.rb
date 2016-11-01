@@ -4,9 +4,18 @@ class SolicitudsController < ApplicationController
   # GET /solicituds
   # GET /solicituds.json
   def index
+    @paramSelServicio = params[:format]
     @solicituds = Solicitud.all
+    @lstEmpresas = Empresa.all
+    @lstServicios = Servicio.all
+    @solicitud = Solicitud.new
+    @folioActual = Solicitud.count
   end
 
+  def guardarSolicitud
+    @solicitud = Solicitud.new(folio: params[:folio], direccion_origen: params[:dor], direccion_destino:params[:ddes])
+    redirect_to general_resumen_path(@solicitud, folio: params[:folio], direccion_origen: params[:dor], direccion_destino:params[:ddes])
+  end
   # GET /solicituds/1
   # GET /solicituds/1.json
   def show
@@ -69,6 +78,6 @@ class SolicitudsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solicitud_params
-      params.require(:solicitud).permit(:folio, :fecha_cita, :fech_inicio, :fecha_fin, :fecha_entrega_caja, :empresa_servicio_id, :direccion_destino)
+      params.require(:solicitud).permit(:folio, :fecha_cita, :fech_inicio, :fecha_fin, :fecha_entrega_caja, :empresa_servicio_id, :direccion_destino, :direccion_origen)
     end
 end

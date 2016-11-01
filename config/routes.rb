@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :solicituds
   resources :empresas
   resources :servicios
+
   get 'general/index'
   get 'general/contacto'
+  get 'general/resumen'
 
+  post 'solicituds/guardarSolicitud'
   post 'caracteristicas/redireccionSolicitudes'
   root 'general#index'
 
