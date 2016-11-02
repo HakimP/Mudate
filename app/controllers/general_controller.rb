@@ -7,10 +7,18 @@ class GeneralController < ApplicationController
   end
 
   def resumen
+    @itemService = params[:servicios]
     @lstEmpresas = Empresa.all
     @lstServicios = Servicio.all
-    
-    @solicitud = Solicitud.new(folio: params[:folio], direccion_origen: params[:dor], direccion_destino:params[:ddes])
-    @coco = "cocoanso"
+
+    @itemEmpresa = Empresa.find params[:empresa]
+    @itemServicio = Servicio.find params[:servicios]
+
+    @listCaracteristicas = Caracteristica.where servicio_id:params[:servicios]
+
+    @solicitud = Solicitud.new(folio: params[:folio], direccion_origen: params[:direccion_destino],
+      direccion_destino:params[:direccion_origen], fech_inicio: params[:fech_inicio],
+      fecha_entrega_caja: params[:fecha_entrega_caja])
+
   end
 end

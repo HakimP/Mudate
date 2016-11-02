@@ -14,7 +14,11 @@ class SolicitudsController < ApplicationController
 
   def guardarSolicitud
     @solicitud = Solicitud.new(folio: params[:folio], direccion_origen: params[:dor], direccion_destino:params[:ddes])
-    redirect_to general_resumen_path(@solicitud, folio: params[:folio], direccion_origen: params[:dor], direccion_destino:params[:ddes])
+    redirect_to general_resumen_path(@solicitud, folio: params[:folio],
+      direccion_origen: params[:dor], direccion_destino:params[:ddes],
+      fech_inicio: params[:fini], fecha_entrega_caja: params[:fcaja],
+      empresa: params[:emp], servicios: params[:servi]
+      )
   end
   # GET /solicituds/1
   # GET /solicituds/1.json

@@ -73,6 +73,13 @@
                 $("#divCajas").hide();
               }
           }
+          $( document ).ready(function() {
+            if($('select[name=servi]').val() == 3){
+              $("#divCajas").show();
+            } else {
+              $("#divCajas").hide();
+            }
+          });
         </script>
         <div class="field col-md-12" id="divCajas">
           <div class="col-md-2"></div>

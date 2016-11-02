@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="container">
   <div class="jumbotron">
     <div class="panel panel-default">
@@ -10,14 +9,14 @@
         <br>
         <%= form_for @solicitud, {url: solicituds_guardarSolicitud_path} do |f| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <%= hidden_field_tag :folio, @folioActual %>
+
         <div class="field col-md-12">
           <div class="col-md-2"></div>
           <div class="col-md-2">
             <%= label_tag(:dor, "Direccion Origen :") %>
           </div>
           <div class="col-md-6">
-            <%= text_field_tag :dor, "", {class:"form-control", placeholder:"Direccion Origen"}%>
+            <%= @solicitud.direccion_origen %>
           </div>
         </div>
 
@@ -28,7 +27,6 @@
           </div>
           <div class="col-md-6">
             <%= @solicitud.folio%>
-            <%= text_field_tag :foil, "", {class:"form-control", placeholder:"Direccion Destino"}%>
           </div>
         </div>
 
@@ -38,7 +36,7 @@
             <%= label_tag(:ddes, "Direccion Destino :") %>
           </div>
           <div class="col-md-6">
-            <%= text_field_tag :ddes, "", {class:"form-control", placeholder:"Direccion Destino"}%>
+            <%= @solicitud.direccion_destino%>
           </div>
         </div>
 
@@ -48,7 +46,7 @@
             <%= label_tag(:fini, "Fecha y Hora Cita Mudanza :") %>
           </div>
           <div class="col-md-6">
-            <%= text_field_tag :fini, "", {class:"form-control", placeholder:"Fecha y Hora Cita Mudanza"}%>
+            <%= @solicitud.fech_inicio%>
           </div>
         </div>
 
@@ -58,8 +56,7 @@
             <%= label_tag(:emp, "Empresa :") %>
           </div>
           <div class="col-md-6">
-            <%= select_tag(:emp, options_from_collection_for_select(@lstEmpresas, "id", "nombre"),
-               prompt: "Selecciona Opción") %>
+            <%= @itemEmpresa.nombre %>
           </div>
         </div>
 
@@ -69,18 +66,17 @@
             <%= label_tag(:servi, "Servicios :") %>
           </div>
           <div class="col-md-6">
-            <%= select_tag(:servi, options_from_collection_for_select(@lstServicios, "id", "desc_servicio", @paramSelServicio),
-               {prompt: "Selecciona Opción", onchange: "ocultaCajas()" }) %>
+            <span id:"idServSel"><%= @itemServicio.desc_servicio%></span>
           </div>
         </div>
         <script>
-          function ocultaCajas() {
-              if($('select[name=servi]').val() == 3){
+            $( document ).ready(function() {
+              if($('#idServSel').val() == 3){
                 $("#divCajas").show();
               } else {
                 $("#divCajas").hide();
               }
-          }
+            });
         </script>
         <div class="field col-md-12" id="divCajas">
           <div class="col-md-2"></div>
@@ -92,9 +88,55 @@
           </div>
         </div>
 
+        <div class="field col-md-12" id="divCajas">
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <%= label_tag(:fcaja, "Fecha y Hora Entrega Cajas :") %>
+          </div>
+          <div class="col-md-6">
+            <%= text_field_tag :fcaja, "", {class:"form-control", placeholder:"Fecha y Hora entrega Cajas"}%>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <br>
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h3 class="panel-title">Caracteristicas</h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-hover">
+                <% @listCaracteristicas.each do |caracteristica| %>
+                  <tr>
+                    <td><%= caracteristica.descripcion %></td>
+                  </tr>
+                <% end %>
+                </table>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-5">
+            <br><br><br>
+            <% if @itemService == "1" %>
+              <%= image_tag "mudanzaBasica.png", :alt => "Mundanza", class:"img-responsive"%>
+            <%elsif @itemService == "2" %>
+              <%= image_tag "mudanzaTotal.png", :alt => "Mundanza", class:"img-responsive"%>
+            <%elsif @itemService == "3" %>
+              <%= image_tag "cajas-para-mudanza.png", :alt => "Mundanza", class:"img-responsive"%>
+            <%elsif @itemService == "" %>
+              <%= image_tag "mudanzas-basica.png", :alt => "Mundanza", class:"img-responsive"%>
+            <% end %>
+          </div>
+
+        </div>
+
         <div cclass="field col-md-12" style="text-align:center">
           <br>
-          <%= submit_tag "Solicitar Servicio", data: { confirm: "Esta seguro de continuar?", disable_with: 'Procesando...' } %>
+          <%= submit_tag "Realizar Pago", disable_with: 'Procesando...' %>
         </div>
         <% end %>
       </div>
