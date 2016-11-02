@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'paypal-sdk-rest'
 gem 'cancancan'
 #gem 'activeadmin', github: 'activeadmin'
 #Bootstrap

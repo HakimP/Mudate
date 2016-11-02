@@ -7,7 +7,7 @@
       </div>
       <div id="bodyFormNewSolicitudes" class="panel-body">
         <br>
-        <%= form_for @solicitud, {url: solicituds_guardarSolicitud_path} do |f| %>
+        <%= form_for @solicitud, {url: general_crear_pago_path} do |f| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
         <div class="field col-md-12">

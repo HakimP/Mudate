@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'general/contacto'
   get 'general/resumen'
 
+  post 'general/crear_pago'
   post 'solicituds/guardarSolicitud'
   post 'caracteristicas/redireccionSolicitudes'
   root 'general#index'
